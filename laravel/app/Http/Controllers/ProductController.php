@@ -3,17 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class ProductController extends Controller
 {
     public function index() {
-        $books = [
-            ['title' => fake()->sentence(3), 'author' => fake()->name(), 'genre' => fake()->word()],
-            ['title' => fake()->sentence(3), 'author' => fake()->name(), 'genre' => fake()->word()],
-            ['title' => fake()->sentence(3), 'author' => fake()->name(), 'genre' => fake()->word()],
-            ['title' => fake()->sentence(3), 'author' => fake()->name(), 'genre' => fake()->word()],
-            ['title' => fake()->sentence(3), 'author' => fake()->name(), 'genre' => fake()->word()]
-        ];
+        $books = Book::all();
 
         return view('products', compact('books'));
     }
